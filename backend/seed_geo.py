@@ -35,6 +35,17 @@ def seed_geo():
     SUFFIXES = ['pur', 'nagar', 'ganj', 'garh', 'abad', 'kunj', 'ghat', 'vihar', 'dham', 'wara', 'pada', 'pally', 'pet', 'puram', 'gram', 'city', 'town', 'valley', 'park', 'square', 'heights', 'colony', 'path', 'marg']
 
     state_to_zone = {s: zone_objs[z] for z, states in STATE_ZONES.items() for s in states}
+    
+    # Ensure all states exist
+    for state_name, zone_obj in state_to_zone.items():
+        state, created = State.objects.get_or_create(
+            name=state_name,
+            defaults={'country': india, 'zone': zone_obj}
+        )
+        if not created and not state.zone:
+            state.zone = zone_obj
+            state.save()
+
     all_states = State.objects.all()
     
     for state in all_states:
