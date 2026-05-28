@@ -21,6 +21,10 @@ from django.conf.urls.static import static
 
 from .frontend import serve_frontend
 
+admin.site.site_header = "Samaniya VoucherHub"
+admin.site.site_title = "Samaniya VoucherHub Admin"
+admin.site.index_title = "Welcome to Samaniya VoucherHub Portal"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/auth/', include('apps.accounts.urls')),
