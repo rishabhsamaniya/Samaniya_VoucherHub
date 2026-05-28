@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Samaniya VoucherHub</title>
+  <link rel="stylesheet" href="css/style.css?v=12" />
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo"><div class="nav-logo-icon">S</div> Samaniya VoucherHub</div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+</div>
+
+<canvas id="particles" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.3;"></canvas>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-icon">S</div> Samaniya VoucherHub</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vouchers.html">Vouchers</a></li>
+      <li><a href="faq.html" class="active">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="cart.html" class="cart-btn"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:18px;height:18px;vertical-align:text-bottom;margin-right:4px;"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg> <span class="cart-count" style="display:none">0</span></a>
+      <a href="login.html" class="btn btn-primary btn-sm">Login</a>
+      <button class="hamburger"></button>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="vouchers.html">Vouchers</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div style="text-align:center;margin-bottom:3rem;">
+    <div class="section-label reveal"> Help Center</div>
+    <h1 class="section-title reveal">Frequently Asked <span class="text-gradient">Questions</span></h1>
+    <p class="section-subtitle reveal" style="margin-inline:auto;">Everything you need to know about Samaniya VoucherHub. Can't find an answer? <a href="contact.html" style="color:var(--cyan);">Contact us.</a></p>
+  </div>
+
+  <!-- Category: General -->
+  <div style="margin-bottom:12px;font-family:var(--font-display);font-size:0.85rem;font-weight:700;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;" class="reveal">General</div>
+
+  <div class="faq-item reveal">
+    <div class="faq-q">
+      What is Samaniya VoucherHub?
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        Samaniya VoucherHub is India's leading platform for buying discounted digital vouchers and gift cards. We partner directly with top brands like Amazon, Flipkart, Netflix, Steam, and hundreds more to offer you genuine vouchers at up to 40% discount. Once you purchase, the voucher code is delivered instantly to your email and displayed on screen.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-q">
+      Are the vouchers genuine and valid?
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        Absolutely. Every voucher on Samaniya VoucherHub is sourced directly from official brand partners. We guarantee 100% genuine codes. In the rare event a code doesn't work, we offer immediate replacement or a full refund — no questions asked.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-q">
+      Is there a minimum order value?
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        No minimum order value! You can purchase even a single ₹100 voucher. There are no hidden charges — the price you see is the price you pay. Processing fees are also completely free.
+      </div>
+    </div>
+  </div>
+
+  <!-- Category: Payment -->
+  <div style="margin:24px 0 12px;font-family:var(--font-display);font-size:0.85rem;font-weight:700;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;" class="reveal">Payment</div>
+
+  <div class="faq-item reveal">
+    <div class="faq-q">
+      What payment methods are accepted?
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        We accept all major payment methods: UPI (GPay, PhonePe, Paytm, BHIM), Credit/Debit Cards (Visa, Mastercard, RuPay), Net Banking (all major Indian banks), and digital wallets (Paytm, Amazon Pay, Mobikwik, Freecharge). All transactions are secured with 256-bit SSL encryption.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-q">
+      Is my payment information secure?
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        Yes. Samaniya VoucherHub uses bank-grade 256-bit SSL encryption for all transactions. We are PCI-DSS compliant and never store your card or banking details on our servers. Payments are processed through certified payment gateways, ensuring your financial information is always protected.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-q">
+      Can I use coupons or promo codes?
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        Yes! Samaniya VoucherHub regularly offers coupon codes for additional savings. You can enter a coupon code during checkout. Try codes like SAVE10 (10% off), VH20 (20% off), or NEWUSER (15% off for first-time buyers). Subscribe to our newsletter to receive exclusive codes in your inbox.
+      </div>
+    </div>
+  </div>
+
+  <!-- Category: Delivery -->
+  <div style="margin:24px 0 12px;font-family:var(--font-display);font-size:0.85rem;font-weight:700;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;" class="reveal">Delivery</div>
+
+  <div class="faq-item reveal">
+    <div class="faq-q">
+      How quickly do I receive my voucher?
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        Voucher codes are delivered instantly — typically within 5–10 seconds of successful payment. The code is displayed on your screen immediately after purchase and also sent to your registered email address. No waiting, no delays.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-q">
+      What if I don't receive my voucher code?
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        First, check your spam/junk folder. If you still don't receive it within 5 minutes, log into your Samaniya VoucherHub account and go to "My Orders" — all codes are saved there. If you still face issues, contact our 24/7 support via live chat or email at support@samaniyavoucherhub.in and we'll resolve it immediately.
+      </div>
+    </div>
+  </div>
+
+  <!-- Category: Refunds -->
+  <div style="margin:24px 0 12px;font-family:var(--font-display);font-size:0.85rem;font-weight:700;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;" class="reveal">Refunds</div>
+
+  <div class="faq-item reveal">
+    <div class="faq-q">
+      What is your refund policy?
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        We offer a 100% refund guarantee. If a voucher code doesn't work, we'll replace it immediately. If we can't provide a replacement, we'll issue a full refund to your original payment method within 3–5 business days. Refunds for unused, unshared codes can also be requested within 7 days of purchase.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-q">
+      Can I exchange a voucher for another brand?
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        Voucher exchanges are possible within 24 hours of purchase, provided the code has not been used or shared. Please contact our support team with your order ID and the reason for exchange. Exchanges are subject to availability and are processed as store credit on your Samaniya VoucherHub account.
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="text-align:center;margin-top:3rem;padding:40px;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--border);" class="reveal">
+    <div style="font-size:2rem;margin-bottom:12px;"></div>
+    <h3 style="font-family:var(--font-display);font-weight:700;color:#fff;margin-bottom:8px;">Still have questions?</h3>
+    <p style="color:var(--muted);margin-bottom:20px;font-size:0.9rem;">Our support team is available 24/7 to help you.</p>
+    <a href="contact.html" class="btn btn-primary">Contact Support →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="padding-top:0;border:none;">
+      <span> 2026 Samaniya VoucherHub. All rights reserved.</span>
+      <div style="display:flex;gap:16px;">
+        <a href="index.html">Home</a>
+        <a href="vouchers.html">Vouchers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"><span class="toast-icon" style="display:none;"></span><span class="toast-msg"></span></div>
+<script src="js/script.js"></script>
+</body>
+</html>

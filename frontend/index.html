@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samaniya VoucherHub — Buy Discounted Digital Vouchers Instantly</title>
+  <link rel="stylesheet" href="css/style.css?v=12" />
+</head>
+<body>
+
+<!-- Page Loader -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">
+      <div class="nav-logo-icon">S</div> Samaniya VoucherHub
+    </div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+</div>
+
+<!-- Particles Canvas -->
+<canvas id="particles" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.6;"></canvas>
+
+<!-- ── NAVBAR ──────────────────────────────────────────── -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">S</div> Samaniya VoucherHub
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="vouchers.html">Vouchers</a></li>
+      <li><a href="index.html#how-it-works">How It Works</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="cart.html" class="cart-btn" title="Cart"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:18px;height:18px;vertical-align:text-bottom;margin-right:4px;"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+        <span class="cart-count" style="display:none">0</span>
+      </a>
+      <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
+      <button class="hamburger" aria-label="Menu">
+        
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="vouchers.html">Vouchers</a>
+    <a href="index.html#how-it-works">How It Works</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html" style="color: var(--cyan); font-weight: 600;">Sign In</a>
+  </div>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="hero">
+  <!-- Left content -->
+  <div class="hero-content">
+    <div class="hero-eyebrow">India's #1 Voucher Platform</div>
+
+    <h1 class="hero-title">
+      Buy Discounted<br>
+      <span class="text-gradient">Digital Vouchers</span><br>
+      Instantly
+    </h1>
+
+    <p class="hero-sub">
+      Secure, fast, and reliable voucher delivery. Get instant codes for shopping, gaming, streaming and more — at up to 40% off.
+    </p>
+
+    <div class="hero-btns">
+      <a href="vouchers.html" class="btn btn-primary btn-lg">
+         Browse Vouchers
+      </a>
+      <a href="index.html#how-it-works" class="btn btn-outline btn-lg">
+        Learn More
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">2M+</div>
+        <div class="hero-stat-label">Vouchers Sold</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">500+</div>
+        <div class="hero-stat-label">Brands Available</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">4.9★</div>
+        <div class="hero-stat-label">Customer Rating</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right visual -->
+  <div class="hero-visual">
+    <div class="hero-card-stack">
+      <!-- Background decorative cards -->
+      <div class="hero-card-bg"></div>
+      <div class="hero-card-bg"></div>
+
+      <!-- Main floating voucher card -->
+      <div class="hero-main-card">
+        <div class="hero-card-top">
+          <div class="hero-card-logo">Samaniya VoucherHub</div>
+          <div class="hero-card-chip"></div>
+        </div>
+        <div class="hero-card-amount">₹1,000</div>
+        <div class="hero-card-label">AMAZON GIFT VOUCHER</div>
+        <div class="hero-card-bottom">
+          <div class="hero-card-code">XXXX · XXXX · 4821</div>
+          <div class="hero-card-badge">−20% OFF</div>
+        </div>
+      </div>
+
+      <!-- Floating tags -->
+      <div class="hero-float">
+        <div class="float-tag"> Instant Delivery</div>
+      </div>
+      <div class="hero-float">
+        <div class="float-tag"> 100% Secure</div>
+      </div>
+      <div class="hero-float">
+        <div class="float-tag"> Best Price</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURED VOUCHERS ─────────────────────────────────── -->
+<section class="voucher-section" id="featured">
+  <div class="section-header reveal">
+    <div class="section-label"> Featured Deals</div>
+    <h2 class="section-title">Top <span class="text-gradient">Vouchers</span> This Week</h2>
+    <p class="section-subtitle">Handpicked discounts on the most popular brands. Limited time offers.</p>
+  </div>
+
+  <p id="featured-vouchers-status" class="section-subtitle" style="display:none;margin-bottom:1rem;text-align:center;"></p>
+  <div id="featured-vouchers-grid" class="vouchers-grid"></div>
+
+  <div style="text-align:center;margin-top:2.5rem;">
+    <a href="vouchers.html" class="btn btn-outline">View All Vouchers →</a>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ──────────────────────────────────────── -->
+<section class="hiw-section" id="how-it-works">
+  <div class="hiw-inner">
+    <div class="hiw-header reveal">
+      <div class="section-label"> Simple Process</div>
+      <h2 class="section-title">How It <span class="text-gradient">Works</span></h2>
+      <p class="section-subtitle">Get your discount voucher code in under 60 seconds, guaranteed.</p>
+    </div>
+
+    <div class="hiw-steps">
+
+      <div class="hiw-step reveal">
+        <div class="hiw-num">1</div>
+        <div class="hiw-icon-wrap"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:32px;height:32px;"><path d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path></svg></div>
+        <div class="hiw-step-title">Choose Voucher</div>
+        <div class="hiw-step-desc">Browse hundreds of brands and pick the voucher denomination that fits your needs.</div>
+      </div>
+
+      <div class="hiw-arrow reveal">→</div>
+
+      <div class="hiw-step reveal">
+        <div class="hiw-num">2</div>
+        <div class="hiw-icon-wrap"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:32px;height:32px;"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg></div>
+        <div class="hiw-step-title">Make Payment</div>
+        <div class="hiw-step-desc">Pay securely via UPI, Net Banking, Credit/Debit Card, or wallets. 256-bit SSL encryption.</div>
+      </div>
+
+      <div class="hiw-arrow reveal">→</div>
+
+      <div class="hiw-step reveal">
+        <div class="hiw-num">3</div>
+        <div class="hiw-icon-wrap"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:32px;height:32px;"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+        <div class="hiw-step-title">Get Code Instantly</div>
+        <div class="hiw-step-desc">Your unique voucher code is delivered to your email and displayed on screen immediately.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY CHOOSE US ─────────────────────────────────────── -->
+<section class="features-section">
+  <div class="section-header reveal">
+    <div class="section-label"> Why Samaniya VoucherHub</div>
+    <h2 class="section-title">Built for <span class="text-gradient">Smart Shoppers</span></h2>
+    <p class="section-subtitle">We deliver the best value so you spend less and save more, every time.</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:28px;height:28px;"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg></div>
+      <div class="feature-title">Huge Discounts</div>
+      <div class="feature-desc">Save up to 40% on top brands. We negotiate directly with brands to bring you the lowest prices.</div>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:28px;height:28px;"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+      <div class="feature-title">Instant Delivery</div>
+      <div class="feature-desc">Codes delivered in seconds via email and on-screen. No waiting, no delays — ever.</div>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:28px;height:28px;"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div>
+      <div class="feature-title">Secure Payment</div>
+      <div class="feature-desc">Bank-grade 256-bit SSL encryption. We support UPI, cards, Net Banking and all major wallets.</div>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:28px;height:28px;"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg></div>
+      <div class="feature-title">24/7 Support</div>
+      <div class="feature-desc">Round-the-clock customer support via chat, email and phone. We're always here to help.</div>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:28px;height:28px;"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+      <div class="feature-title">100% Genuine</div>
+      <div class="feature-desc">Every voucher is sourced directly from official brand partners. Guaranteed authentic codes.</div>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:28px;height:28px;"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg></div>
+      <div class="feature-title">Easy Refunds</div>
+      <div class="feature-desc">Hassle-free refund policy. If a code doesn't work, we replace it or refund you immediately.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ──────────────────────────────────────── -->
+<section class="testimonials-section">
+  <div class="testimonials-inner">
+    <div class="testimonials-header reveal">
+      <div class="section-label"> Customer Reviews</div>
+      <h2 class="section-title">What Our <span class="text-gradient">Customers</span> Say</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Got my Amazon voucher code in literally 10 seconds after payment. Used it immediately. The 20% discount was incredible — will definitely be back!"</div>
+        <div class="testi-author">
+          <div class="testi-avatar">R</div>
+          <div>
+            <div class="testi-name">Rahul Sharma</div>
+            <div class="testi-role">Delhi, India</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Best platform for gifting. I bought 5 Flipkart vouchers for my team and the entire process took under 2 minutes. Super smooth experience!"</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#a855f7,#ec4899)">P</div>
+          <div>
+            <div class="testi-name">Priya Menon</div>
+            <div class="testi-role">Bangalore, India</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"The Netflix voucher discount saved me ₹400 on a yearly plan. The site is beautifully designed and payment was extremely secure."</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#10b981,#06b6d4)">A</div>
+          <div>
+            <div class="testi-name">Arjun Patel</div>
+            <div class="testi-role">Mumbai, India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BANNER ────────────────────────────────────────── -->
+<section style="padding:80px 1rem;">
+  <div style="max-width:700px;margin:auto;text-align:center;" class="reveal">
+    <div class="section-label"> Limited Time</div>
+    <h2 class="section-title">Start Saving <span class="text-gradient">Today</span></h2>
+    <p class="section-subtitle" style="margin-inline:auto;margin-bottom:2rem;">
+      Join 2 million+ smart shoppers getting the best deals on digital vouchers. New deals added daily!
+    </p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="vouchers.html" class="btn btn-primary btn-lg">Browse All Vouchers</a>
+      <a href="login.html" class="btn btn-outline btn-lg">Create Free Account</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:12px;">
+          <div class="nav-logo-icon">S</div> Samaniya VoucherHub
+        </div>
+        <p>India's most trusted platform for buying discounted digital vouchers. Save more on every purchase.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" title="Twitter">𝕏</a>
+          <a href="#" class="social-btn" title="Instagram"></a>
+          <a href="#" class="social-btn" title="LinkedIn">in</a>
+          <a href="#" class="social-btn" title="YouTube"></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="faq.html">FAQ</a>
+        <a href="#">Help Center</a>
+        <a href="#">Refund Policy</a>
+        <a href="#">Track Order</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span> 2026 Samaniya VoucherHub. All rights reserved.</span>
+      <span>Made with  in India</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <span class="toast-icon" style="display:none;"></span>
+  <span class="toast-msg"></span>
+</div>
+
+<script src="js/script.js?v=12"></script>
+</body>
+</html>

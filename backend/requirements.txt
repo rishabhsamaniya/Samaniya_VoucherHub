@@ -1,0 +1,16 @@
+asgiref==3.11.1
+Django==4.2.30
+django-cors-headers==4.9.0
+djangorestframework==3.16.1
+django-import-export==4.4.0
+tablib==3.9.0
+openpyxl==3.1.5
+diff-match-patch==20241021
+sqlparse==0.5.5
+
+typing_extensions==4.15.0
+
+dj-database-url==2.1.0
+psycopg2-binary==2.9.9
+whitenoise==6.6.0
+gunicorn==21.2.0

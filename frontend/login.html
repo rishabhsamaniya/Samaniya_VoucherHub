@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In / Sign Up — Samaniya VoucherHub</title>
+  <link rel="stylesheet" href="css/style.css?v=12" />
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0891b2 100%);
+      font-family: var(--font-main);
+      overflow: hidden;
+    }
+    .auth-container {
+      width: 1000px;
+      max-width: 95vw;
+      min-height: 740px;
+      display: flex;
+      position: relative;
+    }
+    
+    .auth-left {
+      flex: 1;
+      padding: 60px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #fff;
+      position: relative;
+    }
+    .auth-left::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%);
+      top: -50px;
+      left: -50px;
+      z-index: -1;
+    }
+    .auth-left h1 {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 900;
+      margin-bottom: 0px;
+      line-height: 1;
+      background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .auth-left h2 {
+      font-size: 1.1rem;
+      color: var(--cyan);
+      font-weight: 700;
+      letter-spacing: 4px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+    .auth-left p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      max-width: 440px;
+      margin-bottom: 40px;
+    }
+    .auth-features {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .auth-feat-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+    .auth-feat-icon {
+      width: 24px;
+      height: 24px;
+      background: rgba(6,182,212,0.15);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--cyan);
+      font-size: 0.8rem;
+    }
+
+    /* 3D Flip Card Implementation */
+    .auth-right-container {
+      width: 450px;
+      perspective: 1500px;
+      position: relative;
+      /* Move shadow here for stability during flip */
+      box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.7), 0 0 50px rgba(6, 182, 212, 0.15);
+      border-radius: 24px;
+    }
+    .auth-flipper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .is-signup .auth-flipper {
+      transform: rotateY(180deg);
+    }
+    
+    .auth-card-side {
+      position: absolute;
+      inset: 0;
+      /* Voucher Card Style Gradient */
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%);
+      backdrop-filter: blur(30px);
+      padding: 40px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+      /* Remove shadow from here to fix glitch */
+    }
+    .side-back {
+      transform: rotateY(180deg);
+    }
+
+    .auth-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      padding: 6px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .auth-tab {
+      flex: 1;
+      padding: 10px 0;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--muted);
+      cursor: pointer;
+      text-align: center;
+      border-radius: 10px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .auth-tab.active {
+      color: #0f172a;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .input-group { margin-bottom: 15px; }
+    .input-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.85rem; color: #cbd5e1; }
+    .input-group input {
+      width: 100%; padding: 10px 14px; 
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px; font-size: 0.95rem; outline: none;
+      color: #fff;
+      transition: all 0.3s;
+    }
+    .input-group input:focus { border-color: var(--cyan); background: rgba(255,255,255,0.06); }
+    .btn-auth {
+      background: var(--cyan); color: #0f172a; border: none; padding: 12px; border-radius: 10px; font-weight: 800; width: 100%; margin-top: 5px;
+      box-shadow: var(--glow-cyan);
+    }
+    .btn-auth:hover { background: #fff; transform: translateY(-2px); }
+    .forgot-link { display: block; text-align: right; color: var(--muted); font-size: 0.85rem; margin-bottom: 15px; }
+    .forgot-link:hover { color: #fff; }
+
+    /* For Forgot State - Simple Overlay Fade */
+    .forgot-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border-radius: 24px;
+      padding: 40px;
+      z-index: 10;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s;
+    }
+    .is-forgot .forgot-overlay {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    @media (max-width: 768px) {
+      .auth-left { display: none; }
+      .auth-container { justify-content: center; }
+      .auth-right-container { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="particles" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.6;"></canvas>
+
+<div style="position:fixed;top:20px;left:24px;z-index:99;">
+  <a href="index.html" class="btn btn-outline btn-sm" style="color:#fff; border-color:rgba(255,255,255,0.3)">← Back to Home</a>
+</div>
+
+<div class="auth-container" id="auth-main-container">
+  <!-- Left Panel -->
+  <div class="auth-left">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:60px; filter: drop-shadow(0 0 10px rgba(6,182,212,0.3));">
+      <div class="nav-logo-icon" style="width:48px;height:48px;background:#fff;color:#0f172a; font-weight:900; font-size:1.5rem;box-shadow: 0 0 20px rgba(255,255,255,0.2)">S</div>
+      <span style="font-weight:900;font-size:1.8rem; letter-spacing:-1px;">Samaniya VoucherHub</span>
+    </div>
+    
+    <h1>WELCOME</h1>
+    <h2>Your <span style="color:#fff;">Savings</span> Partner</h2>
+    
+    <p>Sign in to your account to manage your vouchers, check your balance, and discover exclusive members-only deals.</p>
+    
+    <div class="auth-features">
+      <div class="auth-feat-item">
+        <div class="auth-feat-icon">✓</div>
+        <span>Instant Voucher Delivery</span>
+      </div>
+      <div class="auth-feat-item">
+        <div class="auth-feat-icon">✓</div>
+        <span>256-bit Secure Payments</span>
+      </div>
+      <div class="auth-feat-item">
+        <div class="auth-feat-icon">✓</div>
+        <span>Exclusive Brand Discounts</span>
+      </div>
+    </div>
+
+    <!-- Floating Graphic Decoration -->
+    <div style="position:absolute; bottom:60px; right:40px; opacity:0.1; pointer-events:none;">
+      <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="100" r="80" stroke="var(--cyan)" stroke-width="2" stroke-dasharray="10 10" />
+        <path d="M60 100 L140 100 M100 60 L100 140" stroke="var(--cyan)" stroke-width="1" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Right Panel with 3D Flip -->
+  <div class="auth-right-container">
+    <div class="auth-flipper">
+      
+      <!-- FRONT SIDE: SIGN IN -->
+      <div class="auth-card-side side-front">
+        <div class="auth-tabs">
+          <div class="auth-tab active" onclick="setAuthMode('signin')">Sign In</div>
+          <div class="auth-tab" onclick="setAuthMode('signup')">Sign Up</div>
+        </div>
+        <div style="margin-bottom:25px;">
+          <h3 style="margin:0;font-size:1.8rem;">Sign In</h3>
+          <p style="color:#64748b;margin-top:8px;">Enter credentials to access account.</p>
+        </div>
+        <form id="login-form">
+          <div class="input-group">
+            <label>Email Address</label>
+            <input type="email" id="login-email" placeholder="you@example.com" required />
+          </div>
+          <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="login-pw" placeholder="••••••••" required />
+          </div>
+          <a href="#" class="forgot-link" onclick="setAuthMode('forgot')">Forgot Password?</a>
+          <button type="submit" class="btn-auth">Sign In</button>
+        </form>
+
+        <!-- Forgot Password Overlay -->
+        <div class="forgot-overlay" id="forgot-overlay">
+          <h3 style="margin:0 0 10px;font-size:1.8rem;">Reset Password</h3>
+          <p style="color:#64748b;margin-bottom:20px;" id="forgot-subtext">Enter your registered mobile number.</p>
+          
+          <form id="forgot-request-form">
+            <div class="input-group">
+              <label>Phone Number</label>
+              <input type="tel" id="forgot-phone" placeholder="+91 9876543210" required />
+            </div>
+            <button type="submit" class="btn-auth">Verify Number</button>
+          </form>
+
+          <form id="forgot-confirm-form" style="display:none;">
+            <div class="input-group">
+              <label>OTP (Sent to terminal)</label>
+              <input type="text" id="forgot-otp" placeholder="123456" required />
+            </div>
+            <div class="input-group">
+              <label>New Password</label>
+              <input type="password" id="forgot-new-pw" placeholder="••••••••" required />
+            </div>
+            <button type="submit" class="btn-auth">Reset Password</button>
+          </form>
+
+          <a href="#" class="forgot-link" style="text-align:center;margin-top:20px;display:block;" onclick="setAuthMode('signin')">Back to Login</a>
+        </div>
+      </div>
+
+      <!-- BACK SIDE: SIGN UP -->
+      <div class="auth-card-side side-back">
+        <div class="auth-tabs">
+          <div class="auth-tab" onclick="setAuthMode('signin')">Sign In</div>
+          <div class="auth-tab active" onclick="setAuthMode('signup')">Sign Up</div>
+        </div>
+        <div style="margin-bottom:20px;">
+          <h3 style="margin:0;font-size:1.8rem;">Sign Up</h3>
+          <p style="color:#64748b;margin-top:8px;">Create a new account.</p>
+        </div>
+        <form id="signup-form">
+          <div class="input-group"><label>Full Name</label><input type="text" id="reg-name" required /></div>
+          <div class="input-group"><label>Email Address</label><input type="email" id="reg-email" required /></div>
+          <div class="input-group"><label>Phone Number</label><input type="tel" id="reg-phone" required /></div>
+          <div class="input-group"><label>Password</label><input type="password" id="reg-pw" required /></div>
+          <button type="submit" class="btn-auth" style="margin-top:0;">Create Account</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><span class="toast-icon" style="display:none;"></span><span class="toast-msg"></span></div>
+
+<script src="js/script.js?v=12"></script>
+<script>
+</script>
+</body>
+</html>
