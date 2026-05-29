@@ -16,7 +16,7 @@ var userInitPromise = null;
 function apiBase() {
   var saved = localStorage.getItem('vh_api_base');
   if (saved) return saved.replace(/\/$/, '');
-  if (String(location.port) === '8000')
+  if (location.protocol.startsWith('http'))
     return location.origin.replace(/\/$/, '') + '/api';
   return 'http://127.0.0.1:8000/api';
 }
