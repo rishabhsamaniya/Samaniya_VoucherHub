@@ -28,11 +28,13 @@ def _cart_summary(user):
     cart = _get_or_create_cart(user)
     items = cart.items.select_related('product')
     payload = []
-    subtotal = 0
+    subtotal = 0      # This will be the original (MRP) subtotal
+    total = 0         # This will be the discounted total
     savings = 0
     for item in items:
         line_total = item.product.price * item.qty
-        subtotal += line_total
+        total += line_total
+        subtotal += item.product.original_price * item.qty
         savings += (item.product.original_price - item.product.price) * item.qty
         payload.append({
             'id': item.id,
@@ -48,7 +50,7 @@ def _cart_summary(user):
         })
     return {
         'items': payload,
-        'summary': {'subtotal': subtotal, 'savings': savings, 'total': subtotal},
+        'summary': {'subtotal': subtotal, 'savings': savings, 'total': total},
     }
 
 # --- Products ---
@@ -137,7 +139,8 @@ def checkout(request):
     if not cart_items:
         return _fail('Cart is empty')
 
-    subtotal = sum(i.product.price * i.qty for i in cart_items)
+    subtotal = sum(i.product.original_price * i.qty for i in cart_items)
+    total = sum(i.product.price * i.qty for i in cart_items)
     savings = sum((i.product.original_price - i.product.price) * i.qty for i in cart_items)
     
     order = Order.objects.create(
@@ -149,7 +152,7 @@ def checkout(request):
         payment_method=payment_method,
         subtotal=subtotal,
         savings=savings,
-        total=subtotal,
+        total=total,
     )
 
     for item in cart_items:
