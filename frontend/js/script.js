@@ -432,11 +432,14 @@ function initCartPage() {
 
   function renderCart(data, userId) {
     var items = data.items || [];
+    var placeOrderBtn = document.getElementById('place-order-btn');
     if (!items.length) {
       container.innerHTML = '<div class="empty-state"><div class="empty-icon"></div><div class="empty-title">Your cart is empty</div><div class="empty-sub">Browse vouchers and add some deals!</div><a href="vouchers.html" class="btn btn-primary">Browse Vouchers</a></div>';
       setSummary(data.summary || {});
+      if (placeOrderBtn) placeOrderBtn.disabled = true;
       return;
     }
+    if (placeOrderBtn) placeOrderBtn.disabled = false;
 
     container.innerHTML = items.map(function(item) {
       return '<div class="cart-item" data-id="' + item.voucher_id + '">' +
@@ -485,6 +488,43 @@ function initCartPage() {
           showToast(' ' + err.message);
         });
       });
+    });
+  }
+
+  var placeOrderBtn = document.getElementById('place-order-btn');
+  if (placeOrderBtn) {
+    placeOrderBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      placeOrderBtn.disabled = true;
+      var originalContent = placeOrderBtn.innerHTML;
+      placeOrderBtn.innerHTML = '<span class="btn-spinner"></span> Placing Order...';
+
+      requireAuth()
+        .then(function(user) {
+          return apiCall('/v1/orders/checkout', {
+            method: 'POST',
+            body: JSON.stringify({
+              payment_method: 'direct',
+              customer: {
+                name: user.full_name || 'Customer',
+                email: user.email || '',
+                phone: user.phone || ''
+              }
+            })
+          });
+        })
+        .then(function(orderData) {
+          showToast(' Order placed successfully!');
+          updateCartBadge();
+          setTimeout(function() {
+            location.href = 'orders.html';
+          }, 1500);
+        })
+        .catch(function(err) {
+          showToast('Error: ' + err.message);
+          placeOrderBtn.disabled = false;
+          placeOrderBtn.innerHTML = originalContent;
+        });
     });
   }
 
