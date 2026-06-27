@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign In / Sign Up — Samaniya VoucherHub</title>
+  <title>Sign In / Sign Up — FUTURE REWARDZ</title>
   <link rel="stylesheet" href="css/style.css?v=12" />
   <style>
     body {
@@ -12,7 +12,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0891b2 100%);
+      background: linear-gradient(135deg, #0a0c16 0%, #121528 50%, #e05e6f 100%);
       font-family: var(--font-main);
       overflow: hidden;
     }
@@ -38,7 +38,7 @@
       position: absolute;
       width: 300px;
       height: 300px;
-      background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(224,94,111,0.15) 0%, transparent 70%);
       top: -50px;
       left: -50px;
       z-index: -1;
@@ -83,7 +83,7 @@
     .auth-feat-icon {
       width: 24px;
       height: 24px;
-      background: rgba(6,182,212,0.15);
+      background: rgba(224,94,111,0.15);
       border-radius: 50%;
       display: grid;
       place-items: center;
@@ -97,7 +97,7 @@
       perspective: 1500px;
       position: relative;
       /* Move shadow here for stability during flip */
-      box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.7), 0 0 50px rgba(6, 182, 212, 0.15);
+       box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.7), 0 0 50px rgba(224, 94, 111, 0.15);
       border-radius: 24px;
     }
     .auth-flipper {
@@ -211,9 +211,22 @@
 <div class="auth-container" id="auth-main-container">
   <!-- Left Panel -->
   <div class="auth-left">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:60px; filter: drop-shadow(0 0 10px rgba(6,182,212,0.3));">
-      <div class="nav-logo-icon" style="width:48px;height:48px;background:#fff;color:#0f172a; font-weight:900; font-size:1.5rem;box-shadow: 0 0 20px rgba(255,255,255,0.2)">S</div>
-      <span style="font-weight:900;font-size:1.8rem; letter-spacing:-1px;">Samaniya VoucherHub</span>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:60px; filter: drop-shadow(0 0 10px rgba(224,94,111,0.3));">
+      <div class="nav-logo-icon" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;box-shadow: 0 0 20px rgba(255,255,255,0.2);border-radius:12px;">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; vertical-align: middle;">
+          <defs>
+            <linearGradient id="logo-grad-login" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#8e3175" />
+              <stop offset="100%" stop-color="#e05e6f" />
+            </linearGradient>
+          </defs>
+          <path d="M50,33 C45,21 35,26 48,34 C49,35 50,36 50,36 C50,36 51,35 52,34 C65,26 55,21 50,33 Z" stroke="url(#logo-grad-login)" stroke-width="5" stroke-linejoin="round" />
+          <path d="M43,41 H37 C34,41 33,43 33,46 V55 C33,65 41,65 44,56 C47,47 53,47 56,56 C59,65 67,65 67,55 V46 C67,43 66,41 63,41 H57" stroke="url(#logo-grad-login)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M44,56 C47,47 52,43 59,43 C67,43 72,52 82,32" stroke="url(#logo-grad-login)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M72,32 H82 V42" stroke="url(#logo-grad-login)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <span style="font-weight:900;font-size:1.8rem; letter-spacing:-1px;">FUTURE <span class="text-gradient">REWARDZ</span></span>
     </div>
     
     <h1>WELCOME</h1>

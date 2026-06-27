@@ -21,9 +21,9 @@ from django.conf.urls.static import static
 
 from .frontend import serve_frontend
 
-admin.site.site_header = "Samaniya VoucherHub"
-admin.site.site_title = "Samaniya VoucherHub Admin"
-admin.site.index_title = "Welcome to Samaniya VoucherHub Portal"
+admin.site.site_header = "FUTURE REWARDZ"
+admin.site.site_title = "FUTURE REWARDZ Admin"
+admin.site.index_title = "Welcome to FUTURE REWARDZ Portal"
 
 urlpatterns = [
     path('admin/', admin.site.urls),

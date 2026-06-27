@@ -86,9 +86,9 @@ print("Products and Categories populated successfully.")
 # 4. Seed FAQs
 print("=== Seeding FAQs ===")
 faqs = [
-    ("What is Samaniya VoucherHub?", "Samaniya VoucherHub is India's leading platform for buying discounted digital vouchers and gift cards. We partner directly with top brands like Amazon, Flipkart, Netflix, Steam, and hundreds more to offer you genuine vouchers at up to 40% discount."),
-    ("Are the voucher codes genuine?", "Absolutely. Every voucher on Samaniya VoucherHub is sourced directly from official brand partners. We guarantee 100% genuine codes."),
-    ("Is payment secure on Samaniya VoucherHub?", "Yes. Samaniya VoucherHub uses bank-grade 256-bit SSL encryption for all transactions. We are PCI-DSS compliant and never store your card or banking details.")
+    ("What is FUTURE REWARDZ?", "FUTURE REWARDZ is India's leading platform for buying discounted digital vouchers and gift cards. We partner directly with top brands like Amazon, Flipkart, Netflix, Steam, and hundreds more to offer you genuine vouchers at up to 40% discount."),
+    ("Are the voucher codes genuine?", "Absolutely. Every voucher on FUTURE REWARDZ is sourced directly from official brand partners. We guarantee 100% genuine codes."),
+    ("Is payment secure on FUTURE REWARDZ?", "Yes. FUTURE REWARDZ uses bank-grade 256-bit SSL encryption for all transactions. We are PCI-DSS compliant and never store your card or banking details.")
 ]
 for q, a in faqs:
     FAQ.objects.get_or_create(question=q, defaults={'answer': a, 'is_active': True})
